@@ -1,0 +1,16 @@
+Personal vimrc on top of vundle (a Vim plugin manager) 
+
+Quick setup
+
+1. Make dir for plugins in $HOME/.vim
+   $ mkdir ~/.vim/bundle
+2. Setup Vundle
+   $ git clone git://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+3. Install plugins inside vim by 
+   : PluginInstall
+
+Known issue
+1. plugin 'vim-colors-solarized', colorscheme solarized.vim can't be found. 
+   walkaround: copy solarized.vim into ~/.vim/colors 
+  
+   
