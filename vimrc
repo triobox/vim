@@ -26,8 +26,14 @@ nmap    f [unite]
 nnoremap [unite]ma :<C-u>Unite mapping<CR>
 
 "file searching 
-nnoremap [unite]f  :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-"nnoremap <leader>t :Unite file_rec/async<cr> 
+nnoremap [unite]f  :<C-u>Unite -no-split -buffer-name=files buffer bookmark -start-insert file_rec/async:!<cr>
+"nnoremap <leader>t :Unite file_rec/async<cr>
+
+"file searching with input directory 
+nnoremap [unite]i  :<C-u>UniteWithInputDirectory -buffer-name=files file_rec/async:!<cr>
+
+"register searching 
+nnoremap [unite]r  :<C-u>Unite -buffer-name=register register<cr>
 
 "content searching
 "nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=files -start-insert Unite grep:.<cr> 
@@ -40,7 +46,7 @@ let g:unite_source_history_yank_enable = 1
 nnoremap [unite]y :Unite history/yank<cr> 
 
 "buffer switching
-nnoremap [unite]s :Unite -quick-match buffer<cr> 
+nnoremap [unite]b :Unite -quick-match buffer<cr> 
 
 """""""""""""""
 Plugin 'davidhalter/jedi-vim'

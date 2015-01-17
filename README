@@ -8,6 +8,9 @@ Quick setup
    $ git clone git://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 3. Install plugins inside vim by 
    : PluginInstall
+4. Make vimproc
+   $ cd ~/.vim/bundle/vimproc.vim
+   $ make 
 
 Known issue
 1. plugin 'vim-colors-solarized', colorscheme solarized.vim can't be found. 
