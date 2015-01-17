@@ -11,32 +11,49 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
+
+"""""""""""""
 " plugin on GitHub repo
 Plugin 'Shougo/vimproc.vim'
 
+"""""""""""""
 Plugin 'Shougo/unite.vim'
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"file searching 
-"nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-"nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec<cr>
-"nnoremap <leader>t :Unite file_rec/async<cr> 
-"content searching
-nnoremap <leader>/ :Unite grep:.<cr> 
-"yank history 
-nnoremap <leader>y :Unite history/yank<cr> 
-"buffer switching
-nnoremap <leader>s :Unite -quick-match buffer<cr> 
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap    [unite]   <Nop>
+nmap    f [unite]
 
+"mapping searching
+nnoremap [unite]ma :<C-u>Unite mapping<CR>
+
+"file searching 
+nnoremap [unite]f  :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+"nnoremap <leader>t :Unite file_rec/async<cr> 
+
+"content searching
+"nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=files -start-insert Unite grep:.<cr> 
+nnoremap [unite]/ :Unite grep:.<cr> 
+" search word under Cursor
+nnoremap [unite]c :UniteWithCursorWord grep:.<cr> 
+
+"yank history 
+let g:unite_source_history_yank_enable = 1
+nnoremap [unite]y :Unite history/yank<cr> 
+
+"buffer switching
+nnoremap [unite]s :Unite -quick-match buffer<cr> 
+
+"""""""""""""""
 Plugin 'davidhalter/jedi-vim'
 " let g:jedi#completions_enabled = 0
 let g:jedi#use_tabs_not_buffers = 0
 
+""""""""""""""""
 Plugin 'scrooloose/syntastic'
 
+""""""""""""""""
 Plugin 'scrooloose/nerdcommenter'
 
+""""""""""""""""
 Plugin 'scrooloose/nerdtree'
 "nnoremap <C-n> :NERDTreeToggle<cr>
 let NERDTreeChDirMode=2
@@ -45,9 +62,10 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 nnoremap <leader>f <Esc> :NERDTreeToggle<cr>
 
-
+"""""""""""""""""""
 Plugin 'tpope/vim-fugitive'
 
+"""""""""""""""""""
 Plugin 'altercation/vim-colors-solarized'
 syntax on
 set background=dark
@@ -65,6 +83,7 @@ let g:solarized_italic = 1
 "let g:solarized_visibility= "normal"| "high" or "low" 
 colorscheme solarized
 "call togglebg#map("<F2>")
+
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
